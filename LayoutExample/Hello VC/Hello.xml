@@ -1,0 +1,29 @@
+<UIView
+	backgroundColor = "#aaa">
+
+	<UILabel 
+		top = "40%" 
+		left = "50% - width / 2" 
+		text = "{strings.hello} {name == '' ? 'World' : name}"
+		font = "30 bold"
+	/>
+
+	<UITextField 
+		top = "previous.bottom + 20"
+		left = "50% - width / 2"
+		width = "80%"
+		backgroundColor = "white"
+		borderStyle = "roundedRect"
+		outlet="txtField"
+	/>
+
+	<UIButton 
+		title = "Say Hello"
+		top = "previous.bottom + 20"
+		left = "50% - width / 2"
+		width = "auto + 20"
+		backgroundColor = "blue"
+		layer.cornerRadius = "10"
+		touchUpInside="sayHello"
+	/>
+</UIView>

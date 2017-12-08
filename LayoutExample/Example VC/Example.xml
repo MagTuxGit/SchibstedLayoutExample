@@ -1,0 +1,26 @@
+<UIView
+    backgroundColor="#aaa"
+    width = "100%"
+    height = "100"
+    top = "50% - height/2">
+
+    <UIImageView
+        backgroundColor="#fff"
+        contentMode="scaleAspectFit"
+        image="{image}"
+        left="10"
+        top="50% - height/2"
+        width="max(intrinsicContentSize.width, intrinsicContentSize.height)"
+        height="width"
+    />
+    <UILabel
+        font="120% bold"
+        left="previous.right + 10"
+        numberOfLines="0"
+        right="100% - 10"
+        text="{text}"
+        textColor="#fff"
+        top="50% - height/2"
+    />
+
+</UIView>
