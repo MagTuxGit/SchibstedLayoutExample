@@ -10,18 +10,22 @@ import UIKit
 import Layout
 
 struct State {
+    var greeting: String
     var name: String
 }
 
-class HelloViewController: LayoutViewController {
+class HelloViewController: LayoutViewController, UITextFieldDelegate {
 
     //@IBOutlet var label: UILabel?
-    @IBOutlet var txtField: UITextField?
+    
+    // delegate is automatically bound to the VC
+    @IBOutlet var txtGreeting: UITextField?
+    @IBOutlet var txtName: UITextField?
 
     @IBAction func sayHello() {
         //label?.text = "Hello \(txtField?.text ?? "")"
         //layoutNode?.setState(["name": txtField?.text ?? ""])
-        layoutNode?.setState(State(name: txtField?.text ?? ""))
+        layoutNode?.setState(State(greeting: txtGreeting?.text ?? "", name: txtName?.text ?? ""))
     }
     
     override func viewDidLoad() {
@@ -30,7 +34,18 @@ class HelloViewController: LayoutViewController {
         loadLayout(
             named: "Hello.xml",
             //state: ["name": ""]
-            state: State(name: "")
+            state: State(greeting: "", name: "")
         )
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        if textField == txtGreeting {
+            txtName?.becomeFirstResponder()
+        } else if textField == txtName {
+            sayHello()
+        }
+        return false
     }
 }

@@ -1,20 +1,57 @@
 <UIView
 	backgroundColor = "#aaa">
 
-	<UILabel 
-		top = "40%" 
+	<!--
+	text = "{strings.hello} {name == '' ? 'World' : name}"	
+	-->
+	<UILabel
+		top = "20%" 
 		left = "50% - width / 2" 
-		text = "{strings.hello} {name == '' ? 'World' : name}"
+		text = "{greeting == '' ? 'Hello' : greeting} {name == '' ? 'World' : name}"
 		font = "30 bold"
 	/>
 
-	<UITextField 
+	<UILabel 
+		id = "lblGreeting"
 		top = "previous.bottom + 20"
-		left = "50% - width / 2"
-		width = "80%"
+		left = "10" 
+		text = "Greeting"
+	/>
+
+	<UITextField 
+		top = "previous.top"
+		left = "#theLongest.left"
+		width = "#theLongest.width"
 		backgroundColor = "white"
 		borderStyle = "roundedRect"
-		outlet="txtField"
+		outlet="txtGreeting"
+	/>
+	<UILabel 
+		top = "previous.bottom + 20"
+		left = "10" 
+		text = "Name"
+	/>
+	<UITextField 
+		top = "previous.top"
+		left = "#theLongest.left"
+		width = "#theLongest.width"
+		backgroundColor = "white"
+		borderStyle = "roundedRect"
+		outlet="txtName"
+	/>
+	<UILabel 
+		top = "previous.bottom + 20"
+		left = "10" 
+		text = "TheLongestLabel"
+	/>
+	<UITextField 
+		id = "theLongest"
+		top = "previous.top"
+		left = "previous.right + 10"
+		width = "parent.width - previous.right - 20"
+		backgroundColor = "white"
+		borderStyle = "roundedRect"
+		delegate = "nil"
 	/>
 
 	<UIButton 
